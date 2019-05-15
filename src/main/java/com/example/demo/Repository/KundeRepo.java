@@ -7,22 +7,32 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class KundeRepo {
 
     @Autowired
     JdbcTemplate template;
 
+    public List<Kunde> fetchAll(){
+        String sql = "SELECT * FROM nf3kunde";
+        RowMapper<Kunde> rowMapper = new BeanPropertyRowMapper<>(Kunde.class);
+        return template.query(sql, rowMapper);
+    }
+
     public Kunde tilføjKunde(Kunde k){
         // Tilføjer en kunde
-        String sql = "INSERT INTO kunde (";
-        template.update(sql, k.getKørekortNr(), k.getKørekortUdløb(), k.getFornavn(), k.getEfternavn(), k.getFødselsdato(), k.getPostNr(), k.getBy(), k.getAdresse(), k.getTelefonNr(), k.getDataOprettet(), k.isBlacklist());
+        String sql = "INSERT INTO nf3kunde (kørekortnr, kørekortudløb, fornavn, efternavn, fødselsdato, adresse, telefonnr, datoOprettet, blacklist) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, k.getKørekortNr(), k.getKørekortUdløb(), k.getFornavn(), k.getEfternavn(), k.getFødselsdato(), k.getAdresse(), k.getTelefonNr(), k.getDataOprettet(), k.isBlacklist());
+        String sql2 = "INSERT INTO nf3kunde (postnummer, bynavn) VALUES (?, ?)";
+        template.update(sql2, k.getPostNr(), k.getBy());
         return null;
     }
 
     public Kunde findKundeMedKørekort(int kørekortNr){
         // Finder kunde ud fra kørekortsnr
-        String sql = "SELECT * FROM kunde WHERE XXX = ?";
+        String sql = "SELECT * FROM kunde WHERE kørekortnr = ?";
         RowMapper<Kunde> rowMapper = new BeanPropertyRowMapper<>(Kunde.class);
         Kunde k = template.queryForObject(sql, rowMapper, kørekortNr);
         return k;
@@ -30,14 +40,16 @@ public class KundeRepo {
 
     public Boolean sletKunde(int kørekortNr){
         // Sletter kunde
-        String sql = "DELETE FROM kunde WHERE XXX = ?";
+        String sql = "DELETE FROM kunde WHERE kørekortnr = ?";
         return template.update(sql, kørekortNr) > 0;
     }
 
     public Kunde redigerKunde(int kørekortNr, Kunde k){
         // redigerer kunde
-        String sql = "UPDATE kunde SET ";
-        template.update(sql, k.getKørekortNr(), k.getKørekortUdløb(), k.getFornavn(), k.getEfternavn(), k.getFødselsdato(), k.getPostNr(), k.getBy(), k.getAdresse(), k.getTelefonNr(),k.getDataOprettet(), k.isBlacklist());
+        String sql = "UPDATE nf3kunde SET kørekortnr = ?, kørekortudløb = ?,fornavn = ?,efternavn = ?,fødselsdato = ?,adresse = ?,telefonnr = ?,datoOprettet = ?,blacklist = ? WHERE kørekortnr = ?";
+        template.update(sql, k.getKørekortNr(), k.getKørekortUdløb(), k.getFornavn(), k.getEfternavn(), k.getFødselsdato(), k.getAdresse(), k.getTelefonNr(),k.getDataOprettet(), k.isBlacklist());
+        String sql2 = "UPDATE nf3kunde SET postnummer = ?, bynavn = ? WHERE kørekortnr = ?";
+        template.update(sql2, k.getPostNr(), k.getBy());
         return null;
     }
 

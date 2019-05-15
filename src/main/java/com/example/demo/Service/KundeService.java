@@ -5,11 +5,17 @@ import com.example.demo.Repository.KundeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class KundeService {
 
     @Autowired
     KundeRepo kundeRepo;
+
+    public List<Kunde> fetchAll(){
+        return kundeRepo.fetchAll();
+    }
 
     public Kunde tilføjKunde(Kunde k){
         // Tilføjer kunde
