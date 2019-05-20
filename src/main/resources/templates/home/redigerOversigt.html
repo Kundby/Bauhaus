@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Oversigt af Kunder - Bauhaus</title>
+    <title>Rediger Kunde - Bauhaus</title>
+    <link rel="stylesheet" type="text/css" href="BauhausCSS.css">
 </head>
 <body>
+<img src="Bauhaus_Logo.png" height="50" width="200">
+
+<h1 id="title-rediger">
+    <b>Rediger Kunde</b>
+</h1>
+
+<div id="form_button_redigerOversigt">
+
+
+<form action="/rediger">
+    <input type="submit" value="Søg på Kørekort">
+    <input type="text" name="søg_kørekort"><br>
+</form>
+
+<button type="submit">Vælg Markeret Kunde</button>
+
+</div>
+
+<div id="table_redigerOversigt">
+
+    <table class="center">
+        <thead>
+        <tr>
+            <th>Kørekortnr</th>
+            <th>Adresse_ID</th>
+            <th>Kørekort Udløb</th>
+            <th>Fornavn</th>
+            <th>Efternavn</th>
+            <th>Fødselsdato</th>
+            <th>Postnummer</th>
+            <th>Adresse</th>
+            <th>TelefonNr</th>
+            <th>Kunde oprettet d.</th>
+            <th>Blacklist</th>
+            <th>Blacklist</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr th:each="nf3kunde: ${kunder}">
+            <td th:text="${nf3kunde.korekortnr}"/>
+            <td th:text="${nf3kunde.adresse_ID}"/>
+            <td th:text="${nf3kunde.korekortudlob}"/>
+            <td th:text="${nf3kunde.fornavn}"/>
+            <td th:text="${nf3kunde.efternavn}"/>
+            <td th:text="${nf3kunde.fodselsdato}"/>
+
+            <td th:text="${nf3kunde.telefonnr}"/>
+            <td th:text="${nf3kunde.datoOprettet}"/>
+            <td th:text="${nf3kunde.blacklist}"/>
+            <td th:text="${nf3kunde.postnummer}"/>
+            <td th:text="${nf3kunde.bynavn}"/>
+            <td th:text="${nf3kunde.adresse}"/>
+            <td>
+                <input type="checkbox" name="table_choose" value="Choose">
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
 
 </body>
 </html>

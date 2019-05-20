@@ -7,31 +7,6 @@
 <body>
 <h1>PERSONLIST</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="kunde: ${kunder}">
-        <td th:text="${kunde.kørekortnr}"/>
-        <td th:text="${nf3kunde.kørekortudløb}"/>
-        <td th:text="${nf3kunde.fornavn}"/>
-        <td th:text="${nf3kunde.efternavn}"/>
-        <td th:text="${nf3kunde.fødselsdato}"/>
-        <td th:text="${nf3kunde.postnr}"/>
-        <td th:text="${nf3kunde.bynavn}"/>
-        <td th:text="${nf3kunde.adresse}"/>
-        <td th:text="${nf3kunde.telefonNr}"/>
-        <td th:text="${nf3kunde.datoOprettet}"/>
-        <td th:text="${nf3kunde.blacklist}"/>
 
-    </tr>
-    </tbody>
-</table>
 </body>
 </html>

@@ -7,49 +7,85 @@ import javax.persistence.Id;
 @Entity
 public class Kunde {
     @Id
-    private int kørekortNr;
-    private String kørekortUdløb;
+    private int korekortnr;
+    private int adresse_ID;
+    private String korekortudlob;
     private String fornavn;
     private String efternavn;
-    private String fødselsdato;
-    private int postNr;
-    private String by;
+    private String fodselsdato;
+    private int postnummer;
+    private String bynavn;
     private String adresse;
-    private int telefonNr;
-    private String dataOprettet;
+    private int telefonnr;
+    private String datoOprettet;
     private boolean blacklist;
 
     public Kunde(){
     }
 
-    public Kunde(int KørekortNr, String KørekortUdløb, String Fornavn, String Efternavn, String Fødselsdato, int PostNr, String By, String Adresse, int TelefonNr, String DatoOprettet, boolean Blacklist){
-        this.kørekortNr = KørekortNr;
-        this.kørekortUdløb = KørekortUdløb;
-        this.fornavn = Fornavn;
-        this.efternavn = Efternavn;
-        this.fødselsdato = Fødselsdato;
-        this.postNr = PostNr;
-        this.by = By;
-        this.adresse = Adresse;
-        this.telefonNr = TelefonNr;
-        this.dataOprettet = DatoOprettet;
-        this.blacklist = Blacklist;
+    public Kunde(int korekortnr, int adresse_ID, String korekortudlob, String fornavn, String efternavn, String fodselsdato,  int telefonnr, String datoOprettet, boolean blacklist){
+        this.korekortnr = korekortnr;
+        this.adresse_ID = adresse_ID;
+        this.korekortudlob = korekortudlob;
+        this.fornavn = fornavn;
+        this.efternavn = efternavn;
+        this.fodselsdato = fodselsdato;
+
+        this.telefonnr = telefonnr;
+        this.datoOprettet = datoOprettet;
+        this.blacklist = blacklist;
     }
 
-    public int getKørekortNr() {
-        return kørekortNr;
+    public void setDatoOprettet(String datoOprettet) {
+        this.datoOprettet = datoOprettet;
     }
 
-    public void setKørekortNr(int kørekortNr) {
-        this.kørekortNr = kørekortNr;
+    public int getTelefonnr() {
+        return telefonnr;
     }
 
-    public String getKørekortUdløb() {
-        return kørekortUdløb;
+    public void setTelefonnr(int telefonnr) {
+        this.telefonnr = telefonnr;
     }
 
-    public void setKørekortUdløb(String kørekortUdløb) {
-        this.kørekortUdløb = kørekortUdløb;
+    public int getAdresse_ID() {
+        return adresse_ID;
+    }
+
+    public void setAdresse_ID(int adresse_ID) {
+        this.adresse_ID = adresse_ID;
+    }
+
+    public int getKorekortnr() {
+        return korekortnr;
+    }
+
+    public void setKorekortnr(int korekortnr) {
+        this.korekortnr = korekortnr;
+    }
+
+    public String getKorekortudlob() {
+        return korekortudlob;
+    }
+
+    public void setKorekortudlob(String korekortudlob) {
+        this.korekortudlob = korekortudlob;
+    }
+
+    public int getKorekortNr() {
+        return korekortnr;
+    }
+
+    public void setKorekortNr(int korekortnr) {
+        this.korekortnr = korekortnr;
+    }
+
+    public String getKorekortUdlob() {
+        return korekortudlob;
+    }
+
+    public void setKorekortUdlob(String korekortUdlob) {
+        this.korekortudlob = korekortUdlob;
     }
 
     public String getFornavn() {
@@ -68,52 +104,22 @@ public class Kunde {
         this.efternavn = efternavn;
     }
 
-    public String getFødselsdato() {
-        return fødselsdato;
+    public String getFodselsdato() {
+        return fodselsdato;
     }
 
-    public void setFødselsdato(String fødselsdato) {
-        this.fødselsdato = fødselsdato;
+    public void setFodselsdato(String fodselsdato) {
+        this.fodselsdato = fodselsdato;
     }
 
-    public int getPostNr() {
-        return postNr;
+
+
+    public String getDatoOprettet() {
+        return datoOprettet;
     }
 
-    public void setPostNr(int postNr) {
-        this.postNr = postNr;
-    }
-
-    public String getBy() {
-        return by;
-    }
-
-    public void setBy(String by) {
-        this.by = by;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public int getTelefonNr() {
-        return telefonNr;
-    }
-
-    public void setTelefonNr(int telefonNr) {
-        this.telefonNr = telefonNr;
-    }
-
-    public String getDataOprettet() {
-        return dataOprettet;
-    }
-
-    public void setDataOprettet(String dataOprettet) {
-        this.dataOprettet = dataOprettet;
+    public void setDataOprettet(String datoOprettet) {
+        this.datoOprettet = datoOprettet;
     }
 
     public boolean isBlacklist() {
