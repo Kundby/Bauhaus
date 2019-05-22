@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Rediger Kunde - Bauhaus</title>
+    <link rel="stylesheet" type="text/css" href="/BauCSS.css">
 </head>
 <body>
+<img src="/static/Bauhaus_Logo.png" height="50" width="200">
+<h1 id="title-rediger"> REDIGER KUNDE</h1>
+<div id="rediger_alt">
+
+    <div id="rediger_tekstbokse">
+        <form action="/" method="post">
+            <label class="rediger_tekst_boks">Kørekort Nr:</label><br>
+            <label class="rediger_tekst_boks">Kørekort udløb:</label><br>
+            <label class="rediger_tekst_boks">Fornavn:</label><br>
+            <label class="rediger_tekst_boks">Efternavn:</label><br>
+            <label class="rediger_tekst_boks">Fødselsdato:</label><br>
+            <label class="rediger_tekst_boks">Telefon nummer:</label><br>
+            <label class="rediger_tekst_boks">Post Nr:</label><br>
+            <label class="rediger_tekst_boks">By:</label><br>
+            <label class="rediger_tekst_boks">Adresse:</label><br>
+            <label class="rediger_tekst_boks">Oprettelses Dato:</label><br>
+            <label class="rediger_tekst_boks">Blacklistet?</label>
+        </form>
+    </div>
+            <div id="rediger_input">
+         <form action="/redigerOversigt" method="post">
+             <input class="rediger_input_boks" type="number" name="korekortnr" th:value="${kunde.korekortnr}">
+             <input class="rediger_input_boks" type="date" name="korekortudlob" th:value="${kunde.korekortudlob}">
+             <input class="rediger_input_boks" type="text" name="fornavn" th:value="${kunde.fornavn}">
+             <input class="rediger_input_boks" type="text" name="efternavn" th:value="${kunde.efternavn}">
+             <input class="rediger_input_boks" type="date" name="fodselsdato" th:value="${kunde.fodselsdato}">
+             <input class="rediger_input_boks" type="number" name="telefonnr" th:value="${kunde.telefonnr}">
+             <input class="rediger_input_boks" type="number" name="postnummer" th:value="${kunde.postnummer}">
+             <input class="rediger_input_boks" type="text" name="bynavn" th:value="${kunde.bynavn}">
+             <input class="rediger_input_boks" type="text" name="adresse" th:value="${kunde.adresse}">
+             <input class="rediger_input_boks" type="date" name="datoOprettet" th:value="${kunde.datoOprettet}">
+             <input class="rediger_input_boks" type="text" name="blacklist" th:value="${kunde.blacklist}">
+             <input type="submit" value="Gem Ændringer"/>
+         </form>
+                <a th:href="@{'/slet/'+${kunde.korekortnr}}">
+                    <input type="submit" id="slet_kunde" value="Slet Kunde">
+                </a>
+     </div>
+    </form>
+</div>
+<input type="text" name="blacklist_detaljer" id="blacklist_detaljer" th:value="${kunde.blacklist_besk}">
+<input type="submit" id="blacklist_tilføj" value="Tilføj til Blacklist">
 
 </body>
 </html>

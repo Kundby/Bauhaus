@@ -22,9 +22,9 @@ public class KundeService {
         return kundeRepo.tilføjKunde(k);
     }
 
-    public Kunde findKundeMedKørekort(int kørekortNr){
+    public Kunde findKundeMedKørekort(int korekortnr){
         // Finder en kunde ud fra KørekortNr
-        return kundeRepo.findKundeMedKørekort(kørekortNr);
+        return kundeRepo.findKundeMedKørekort(korekortnr);
     }
 
     public Boolean sletKunde(int kørekortNr){
@@ -32,9 +32,9 @@ public class KundeService {
         return kundeRepo.sletKunde(kørekortNr);
     }
 
-    public  Kunde redigerKunde(int køreKortNr, Kunde k){
+    public  Kunde redigerKunde(int korekortnr, Kunde k){
         // redigerer kunde
-        return kundeRepo.redigerKunde(køreKortNr, k);
+        return kundeRepo.redigerKunde(korekortnr, k);
     }
 
 

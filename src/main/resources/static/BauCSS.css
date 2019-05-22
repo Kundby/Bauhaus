@@ -1,0 +1,108 @@
+#title-rediger{
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+table, th, td{
+    border: 1px solid black;
+}
+table.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+th{
+    padding: 5px;
+    background-color: red;
+    color: black;
+    text-align: left;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+input{
+    margin-right: 2px;
+}
+#table_redigerOversigt{
+    position: relative;
+    height: 400px;
+    overflow: auto;
+}
+#form_button_redigerOversigt{
+    position: relative;
+    top: 0px;
+    left: 304px;
+}
+.a{
+    text-decoration: none;
+}
+#rediger_input{
+    position: relative;
+    right: 400px;
+    top: 100px;
+    width: 100px;
+    height: 400px;
+    float: right;
+}
+#rediger_tekstbokse{
+    position: relative;
+    left: 350px;
+    top: 100px;
+    font-size: 22px;
+    float: left;
+    width: 200px;
+    height: 400px;
+    text-align: left;
+
+}
+.rediger_input_boks{
+    margin-bottom: 5px;
+    width: 130px;
+}
+.rediger_tekst_boks{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+#slet_kunde{
+    position: relative;
+    right: -160px;
+    top: -60px;
+    padding-left: 10px;
+    float: right;
+}
+#rediger_alt{
+    text-align: center;
+}
+#blacklist_detaljer{
+    position: relative;
+    top: 450px;
+    left: 150px;
+    width: 300px;
+    height: 300px;
+}
+#blacklist_tilføj{
+    position: relative;
+    top: 280px;
+    left: -160px;
+}
+input[type="submit"]{
+    margin-bottom: 30px;
+    font-size: 15px;
+    border-radius: 12px;
+    width: 125px;
+    height: 30px;
+    vertical-align: middle;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+
+}
+input[type="submit"]:hover{
+    background-color: #555555;
+    color: white;
+}

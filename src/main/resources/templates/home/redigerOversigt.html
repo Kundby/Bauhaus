@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Rediger Kunde - Bauhaus</title>
-    <link rel="stylesheet" type="text/css" href="BauhausCSS.css">
+    <link rel="stylesheet" type="text/css" href="BauCSS.css">
 </head>
 <body>
 <img src="Bauhaus_Logo.png" height="50" width="200">
@@ -14,13 +14,12 @@
 
 <div id="form_button_redigerOversigt">
 
-
 <form action="/rediger">
-    <input type="submit" value="Søg på Kørekort">
+    <a th:href="@{'/rediger/'+${nf3kunde.korekortnr}}">
+        <input type="submit" value="Søg på Kørekort">
+    </a>
     <input type="text" name="søg_kørekort"><br>
 </form>
-
-<button type="submit">Vælg Markeret Kunde</button>
 
 </div>
 
@@ -30,16 +29,16 @@
         <thead>
         <tr>
             <th>Kørekortnr</th>
-            <th>Adresse_ID</th>
             <th>Kørekort Udløb</th>
             <th>Fornavn</th>
             <th>Efternavn</th>
             <th>Fødselsdato</th>
-            <th>Postnummer</th>
-            <th>Adresse</th>
             <th>TelefonNr</th>
+            <th>Adresse_ID</th>
+            <th>Postnummer</th>
+            <th>By</th>
+            <th>Adresse</th>
             <th>Kunde oprettet d.</th>
-            <th>Blacklist</th>
             <th>Blacklist</th>
             <th></th>
         </tr>
@@ -48,20 +47,21 @@
         <tr>
         <tr th:each="nf3kunde: ${kunder}">
             <td th:text="${nf3kunde.korekortnr}"/>
-            <td th:text="${nf3kunde.adresse_ID}"/>
             <td th:text="${nf3kunde.korekortudlob}"/>
             <td th:text="${nf3kunde.fornavn}"/>
             <td th:text="${nf3kunde.efternavn}"/>
             <td th:text="${nf3kunde.fodselsdato}"/>
-
             <td th:text="${nf3kunde.telefonnr}"/>
-            <td th:text="${nf3kunde.datoOprettet}"/>
-            <td th:text="${nf3kunde.blacklist}"/>
+            <td th:text="${nf3kunde.adresse_ID}"/>
             <td th:text="${nf3kunde.postnummer}"/>
             <td th:text="${nf3kunde.bynavn}"/>
             <td th:text="${nf3kunde.adresse}"/>
+            <td th:text="${nf3kunde.datoOprettet}"/>
+            <td th:text="${nf3kunde.blacklist}"/>
             <td>
-                <input type="checkbox" name="table_choose" value="Choose">
+                <a th:href="@{'/rediger/'+${nf3kunde.korekortnr}}">
+                    <button class="btn-rediger-valgt-kunde">Rediger Kunde</button>
+                </a>
             </td>
 
         </tr>

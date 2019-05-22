@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -27,29 +28,38 @@ public class HomeController {
         return "home/index";
     }
 
-    @GetMapping("/rediger")
-    public String rediger(){
+    @GetMapping("/rediger/{korekortnr}")
+    public String rediger(@PathVariable("korekortnr")int korekortnr, Model model){
+        model.addAttribute("kunde", kundeService.findKundeMedKørekort(korekortnr));
         return "home/rediger";
+    }
+
+    @PostMapping("/rediger")
+    public String rediger(@ModelAttribute Kunde kunde){
+        kundeService.redigerKunde(kunde.getKorekortnr(), kunde);
+        return "redirect:/redigerOversigt";
     }
 
     @GetMapping("/redigerOversigt")
     public String redigerOversigt(Model model){
         List<Kunde> kundeList = kundeService.fetchAll();
         model.addAttribute("kunder", kundeList);
-       /* List<Adresse> adresseList = adresseService.fetchAll();
-        model.addAttribute("adresser", adresseList);*/
         return "home/redigerOversigt";
     }
-
-    @PostMapping("/tilføj")
-    public String tilføj (@ModelAttribute Kunde kunde){
-        kundeService.tilføjKunde(kunde);
-        return "home/tilføjBekræft";
-    }
-
-   /* @PostMapping("/redigerOversigt")
-    public String opdater(@ModelAttribute Kunde kunde){
+    @PostMapping("/redigerOversigt")
+    public String redigerOversigt(@ModelAttribute Kunde kunde){
         kundeService.redigerKunde(kunde.getKorekortNr(), kunde);
-        return "home/redigerOversigt";
-    }*/
+        return "redirect:/redigerOversigt";
+    }
+
+    @GetMapping("/slet/{korekortnr}")
+    public String slet(@PathVariable ("korekortnr") int korekortnr){
+        boolean slettet = kundeService.sletKunde(korekortnr);
+        if (slettet){
+            return "redirect:/redigerOversigt";
+        }else{
+            return "redirect:/redigerOversigt";
+        }
+    }
+
 }
