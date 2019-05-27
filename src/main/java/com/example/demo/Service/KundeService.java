@@ -37,5 +37,4 @@ public class KundeService {
         return kundeRepo.redigerKunde(korekortnr, k);
     }
 
-
 }

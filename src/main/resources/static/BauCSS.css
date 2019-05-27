@@ -45,7 +45,7 @@ input{
 #rediger_input{
     position: relative;
     right: 400px;
-    top: 100px;
+    top: 40px;
     width: 100px;
     height: 400px;
     float: right;
@@ -53,7 +53,7 @@ input{
 #rediger_tekstbokse{
     position: relative;
     left: 350px;
-    top: 100px;
+    top: 40px;
     font-size: 22px;
     float: left;
     width: 200px;
@@ -79,17 +79,22 @@ input{
 #rediger_alt{
     text-align: center;
 }
-#blacklist_detaljer{
+
+#blacklist_besk{
+    position: relative;
+    text-align: left;
+    top: 100px;
+    left: -705px;
+    width: 200px;
+    height: 80px;
+    resize: none;
+    margin: 1px;
+    padding: 1px;
+}
+h3#blacklist-besk-titel{
     position: relative;
     top: 450px;
-    left: 150px;
-    width: 300px;
-    height: 300px;
-}
-#blacklist_tilføj{
-    position: relative;
-    top: 280px;
-    left: -160px;
+    left: 300px;
 }
 input[type="submit"]{
     margin-bottom: 30px;
@@ -100,7 +105,6 @@ input[type="submit"]{
     vertical-align: middle;
     -webkit-transition-duration: 0.1s;
     transition-duration: 0.1s;
-
 }
 input[type="submit"]:hover{
     background-color: #555555;

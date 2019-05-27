@@ -15,6 +15,7 @@ public class KundeRepo {
     @Autowired
     JdbcTemplate template;
 
+
     public List<Kunde> fetchAll(){
         String sql = "SELECT k.*, a.* FROM nf3kunde k JOIN nf3adresse a ON k.adresse_ID=a.adresse_ID ";
         RowMapper<Kunde> rowMapper = new BeanPropertyRowMapper<>(Kunde.class);

@@ -8,6 +8,7 @@
 <body>
 <img src="/static/Bauhaus_Logo.png" height="50" width="200">
 <h1 id="title-rediger"> REDIGER KUNDE</h1>
+<h3 id="blacklist-besk-titel">Begrundelse for Blacklist</h3>
 <div id="rediger_alt">
 
     <div id="rediger_tekstbokse">
@@ -38,16 +39,17 @@
              <input class="rediger_input_boks" type="text" name="adresse" th:value="${kunde.adresse}">
              <input class="rediger_input_boks" type="date" name="datoOprettet" th:value="${kunde.datoOprettet}">
              <input class="rediger_input_boks" type="text" name="blacklist" th:value="${kunde.blacklist}">
+             <textarea type="text" class=".userInput" name="blacklist_besk" id="blacklist_besk" th:text="${kunde.blacklist_besk}"> </textarea>
+
              <input type="submit" value="Gem Ændringer"/>
+
          </form>
+
                 <a th:href="@{'/slet/'+${kunde.korekortnr}}">
                     <input type="submit" id="slet_kunde" value="Slet Kunde">
                 </a>
      </div>
-    </form>
 </div>
-<input type="text" name="blacklist_detaljer" id="blacklist_detaljer" th:value="${kunde.blacklist_besk}">
-<input type="submit" id="blacklist_tilføj" value="Tilføj til Blacklist">
 
 </body>
 </html>
