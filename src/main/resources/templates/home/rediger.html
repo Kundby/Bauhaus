@@ -41,12 +41,15 @@
              <input class="rediger_input_boks" type="text" name="blacklist" th:value="${kunde.blacklist}">
              <textarea type="text" class=".userInput" name="blacklist_besk" id="blacklist_besk" th:text="${kunde.blacklist_besk}"> </textarea>
 
-             <input type="submit" value="Gem Ændringer"/>
+             <input id="rediger_gem" type="submit" value="Gem Ændringer"/>
 
          </form>
+                <a href="/redigerOversigt">
+                    <button id="rediger_tilbage" class="knap">Tilbage</button>
+                </a>
 
                 <a th:href="@{'/slet/'+${kunde.korekortnr}}">
-                    <input type="submit" id="slet_kunde" value="Slet Kunde">
+                    <input id="rediger_slet"  type="submit" value="Slet Kunde">
                 </a>
      </div>
 </div>

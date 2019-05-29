@@ -27,9 +27,9 @@ public class KundeService {
         return kundeRepo.findKundeMedKørekort(korekortnr);
     }
 
-    public Boolean sletKunde(int kørekortNr){
+    public Boolean sletKunde(int korekortnr){
         // Sletter kunde ud fra kørekortNr
-        return kundeRepo.sletKunde(kørekortNr);
+        return kundeRepo.sletKunde(korekortnr);
     }
 
     public  Kunde redigerKunde(int korekortnr, Kunde k){

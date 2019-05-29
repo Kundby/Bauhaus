@@ -25,7 +25,18 @@ tr:hover {
 button{
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 15px;
+    border-radius: 12px;
+    width: 125px;
+    height: 30px;
+    vertical-align: middle;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
 }
+button:hover{
+       background-color: #555555;
+       color: white;
+   }
 input{
     margin-right: 2px;
 }
@@ -44,7 +55,7 @@ input{
 }
 #rediger_input{
     position: relative;
-    right: 400px;
+    right: 50px;
     top: 40px;
     width: 100px;
     height: 400px;
@@ -76,9 +87,6 @@ input{
     padding-left: 10px;
     float: right;
 }
-#rediger_alt{
-    text-align: center;
-}
 
 #blacklist_besk{
     position: relative;
@@ -109,4 +117,15 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: #555555;
     color: white;
+}
+#rediger_alt{
+    text-align: center;
+    width: 320px;
+    height: 415px;
+    padding: 10px;
+    border: 4px solid black;
+    margin: 0;
+    border-radius: 4px;
+    position:relative;
+    left: 41%;
 }
